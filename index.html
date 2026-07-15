@@ -5,28 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Max Yong — Economist &amp; Policy Researcher</title>
   <meta name="description" content="Max Yong is an economist and policy researcher at Harvard Kennedy School, writing on education policy and personal finance for The Age, the AFR, The Australian and Times Higher Education.">
+  <link rel="canonical" href="https://myong28.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Max Yong — Economist &amp; Policy Researcher">
+  <meta property="og:description" content="Economist and policy researcher at Harvard Kennedy School. Research on university fees cited in the Universities Accord; columnist for The Age and the SMH.">
+  <meta property="og:image" content="https://myong28.github.io/assets/img/portrait.jpg">
+  <meta property="og:url" content="https://myong28.github.io/">
+  <script>
+    (function () {
+      var t = localStorage.getItem("theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23205fae'/><text x='50' y='68' font-size='52' font-family='Inter,Arial' font-weight='700' fill='white' text-anchor='middle'>M</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Max Yong",
+    "givenName": "Max",
+    "familyName": "Yong",
+    "url": "https://myong28.github.io/",
+    "image": "https://myong28.github.io/assets/img/portrait.jpg",
+    "jobTitle": "Economist and policy researcher",
+    "email": "mailto:maxyong@hks.harvard.edu",
+    "affiliation": [
+      { "@type": "CollegeOrUniversity", "name": "Harvard Kennedy School" },
+      { "@type": "CollegeOrUniversity", "name": "University of Melbourne" }
+    ],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Melbourne" },
+    "knowsAbout": ["Economics", "Education policy", "Higher education funding", "Personal finance", "Public policy"],
+    "sameAs": [
+      "https://www.linkedin.com/in/maxwell-yong/",
+      "https://scholar.google.com/citations?user=SK0X0X4AAAAJ&hl=en",
+      "https://findanexpert.unimelb.edu.au/profile/952419-max-yong",
+      "https://www.theage.com.au/by/max-yong-p538ob",
+      "https://www.johnmonash.com/scholar/max-yong/"
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <header class="nav">
     <div class="container nav__inner">
       <a class="nav__brand" href="index.html">
-        <span class="nav__brand-mark">MY</span>
+        <img src="assets/img/monogram.png" alt="">
         <span class="full">Max Yong</span>
       </a>
-      <nav>
-        <ul class="nav__links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="writing.html">Writing &amp; Media</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="nav__right">
+        <nav>
+          <ul class="nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="writing.html">Writing<span class="sm-hide"> &amp; Media</span></a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -36,18 +83,20 @@
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <span class="hero__kicker">Economist · Policy Researcher · Writer</span>
-          <h1>Hi, I'm <span class="accent">Max Yong</span>.</h1>
+          <span class="hero__kicker">Economics · Policy</span>
+          <h1>Max <span class="accent">Yong</span></h1>
           <p class="hero__lede">
             I'm an economist studying how policy shapes the choices people make — from
             university fees to household finances. My research on Australia's university
             funding reforms has been cited in the Universities Accord and by the
             Productivity Commission, and I write regularly for Australia's major mastheads.
           </p>
-          <div class="hero__tags">
-            <span class="tag">Education policy</span>
-            <span class="tag">Personal finance</span>
-            <span class="tag">Public economics</span>
+          <div class="hero__links">
+            <a href="https://www.linkedin.com/in/maxwell-yong/" target="_blank" rel="noopener"><img src="assets/img/logos/sq-linkedin.png" alt="">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=SK0X0X4AAAAJ&hl=en" target="_blank" rel="noopener"><img src="assets/img/logos/sq-scholar.png" alt="">Google Scholar</a>
+            <a href="https://www.theage.com.au/by/max-yong-p538ob" target="_blank" rel="noopener"><img src="assets/img/logos/sq-theage.png" alt="">The Age</a>
+            <a href="https://findanexpert.unimelb.edu.au/profile/952419-max-yong" target="_blank" rel="noopener"><img src="assets/img/logos/sq-unimelb.png" alt="">Find an Expert</a>
+            <a href="https://www.johnmonash.com/scholar/max-yong/" target="_blank" rel="noopener"><img src="assets/img/logos/sq-monash.png" alt="">John Monash</a>
           </div>
           <div class="hero__actions">
             <a class="btn btn--primary" href="writing.html">Read my writing</a>
@@ -68,34 +117,59 @@
           <h2 class="section__title">Where I work and study</h2>
         </div>
         <div class="roles">
-          <article class="role-card reveal">
-            <div class="role-card__icon">🎓</div>
+          <a class="role-card reveal" href="https://www.hks.harvard.edu/" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-harvard-shield.svg" alt="">
             <div>
-              <h3>Harvard Kennedy School</h3>
-              <p>Master in Public Policy candidate, as a 2025 John Monash Scholar (ANZAK Centenary Scholarship).</p>
+              <h3>Harvard Kennedy School <span class="ext">↗</span></h3>
+              <p>Master in Public Policy candidate, as a 2025 John Monash Scholar (ANZAC Centenary Scholarship).</p>
             </div>
-          </article>
-          <article class="role-card reveal">
-            <div class="role-card__icon">📈</div>
+          </a>
+          <a class="role-card reveal" href="https://economics.harvard.edu/" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-harvard-shield.svg" alt="">
             <div>
-              <h3>Harvard University, Department of Economics</h3>
+              <h3>Harvard University, Department of Economics <span class="ext">↗</span></h3>
               <p>Teaching Fellow — ECON 70 (Personal Finance) and BGP 622 (Industrial Policy).</p>
             </div>
-          </article>
-          <article class="role-card reveal">
-            <div class="role-card__icon">🏛️</div>
+          </a>
+          <a class="role-card reveal" href="https://melbourne-cshe.unimelb.edu.au/" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-unimelb.png" alt="">
             <div>
-              <h3>University of Melbourne</h3>
+              <h3>University of Melbourne <span class="ext">↗</span></h3>
               <p>Honorary Fellow, Centre for the Study of Higher Education; research with the Melbourne Institute.</p>
             </div>
-          </article>
-          <article class="role-card reveal">
-            <div class="role-card__icon">✍️</div>
+          </a>
+          <a class="role-card reveal" href="https://www.theage.com.au/by/max-yong-p538ob" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-theage.png" alt="">
             <div>
-              <h3>The Age &amp; The Sydney Morning Herald</h3>
+              <h3>The Age &amp; The Sydney Morning Herald <span class="ext">↗</span></h3>
               <p>Contributor — columns on personal finance, tax and economic policy.</p>
             </div>
-          </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Previously -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section__head reveal">
+          <div class="section__eyebrow">Previously</div>
+        </div>
+        <div class="roles">
+          <a class="role-card reveal" href="https://www.bcg.com/" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-bcg.png" alt="">
+            <div>
+              <h3>Boston Consulting Group <span class="ext">↗</span></h3>
+              <p>Consultant.</p>
+            </div>
+          </a>
+          <a class="role-card reveal" href="https://fbe.unimelb.edu.au/" target="_blank" rel="noopener">
+            <img class="role-card__logo" src="assets/img/logos/sq-unimelb.png" alt="">
+            <div>
+              <h3>University of Melbourne <span class="ext">↗</span></h3>
+              <p>Teaching — economics, finance and mathematics.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -107,16 +181,14 @@
           <div class="section__eyebrow">Featured in</div>
         </div>
         <div class="outlets reveal">
-          <span class="serifed">The Age</span>
-          <span class="serifed">The Sydney Morning Herald</span>
-          <span>Financial Review</span>
-          <span class="serifed">The Australian</span>
-          <span>Times Higher Education</span>
-          <span class="serifed">The Guardian</span>
-          <span>The Conversation</span>
-          <span>ABC News</span>
-          <span>Pursuit</span>
-          <span>Campus Morning Mail</span>
+          <a href="https://www.theage.com.au/by/max-yong-p538ob" target="_blank" rel="noopener"><img src="assets/img/logos/the-age.svg" alt="The Age"></a>
+          <a href="https://www.smh.com.au/" target="_blank" rel="noopener"><img src="assets/img/logos/smh.svg" alt="The Sydney Morning Herald"></a>
+          <a href="https://www.afr.com/" target="_blank" rel="noopener"><img src="assets/img/logos/afr.svg" alt="The Australian Financial Review"></a>
+          <a class="outlet-text-link" href="https://www.theaustralian.com.au/" target="_blank" rel="noopener"><span class="outlet-text">THE AUSTRALIAN</span></a>
+          <a href="https://www.timeshighereducation.com/" target="_blank" rel="noopener"><img src="assets/img/logos/the.svg" alt="Times Higher Education"></a>
+          <a href="https://www.theguardian.com/" target="_blank" rel="noopener"><img src="assets/img/logos/guardian.svg" alt="The Guardian"></a>
+          <a href="https://theconversation.com/" target="_blank" rel="noopener"><img src="assets/img/logos/conversation.png" alt="The Conversation"></a>
+          <a href="https://www.abc.net.au/news" target="_blank" rel="noopener"><img src="assets/img/logos/abc-news.svg" alt="ABC News"></a>
         </div>
       </div>
     </section>
@@ -127,7 +199,6 @@
         <div class="section__head reveal">
           <div class="section__eyebrow">Selected writing</div>
           <h2 class="section__title">Recent pieces</h2>
-          <p class="section__sub">A few recent columns — the full archive, including research articles and media coverage, lives on the writing page.</p>
         </div>
         <div class="featured-grid" id="featured-root"></div>
         <div class="section__more reveal">
@@ -138,20 +209,26 @@
 
     <!-- Research teaser -->
     <section class="section section--soft">
-      <div class="container">
-        <div class="section__head reveal">
-          <div class="section__eyebrow">Research</div>
-          <h2 class="section__title">Do fees change what students study?</h2>
-          <p class="section__sub">
-            My research with the Melbourne Institute uses Australia's Job-ready Graduates reform —
-            the largest re-pricing of degrees in a generation — to measure how students respond to
-            university fees. The short answer: barely at all. The findings have been cited in the
-            Australian Universities Accord and the Productivity Commission's five-year inquiry.
-          </p>
+      <div class="container research-split">
+        <div>
+          <div class="section__head reveal">
+            <div class="section__eyebrow">Research</div>
+            <h2 class="section__title">Do fees change what students study?</h2>
+            <p class="section__sub">
+              My research with the Melbourne Institute uses Australia's Job-ready Graduates reform —
+              the largest re-pricing of degrees in a generation — to measure how students respond to
+              university fees. The short answer: barely at all. The findings have been cited in the
+              Australian Universities Accord and the Productivity Commission's five-year inquiry.
+            </p>
+          </div>
+          <div class="reveal">
+            <a class="btn btn--primary" href="research.html">Explore the research</a>
+          </div>
         </div>
-        <div class="reveal">
-          <a class="btn btn--primary" href="research.html">Explore the research</a>
-        </div>
+        <figure class="research-figure reveal">
+          <img src="assets/img/research-figure.png" alt="Chart: estimated effects of the Job-ready Graduates reform on applicant preferences across 27 fields of study">
+          <figcaption>Estimated effects of the JRG reform on applicant preferences — Yong, Coelli &amp; Kabátek (2023)</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -160,11 +237,9 @@
       <div class="container container--narrow reveal">
         <div class="contact-card">
           <h2>Get in touch</h2>
-          <p>For commissions, research collaborations, media comment, or anything else — my inbox is open.</p>
           <div class="contact-card__actions">
             <a class="btn btn--primary" href="mailto:maxyong@hks.harvard.edu">Email me</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/maxwell-yong/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn--ghost" href="https://scholar.google.com/citations?user=SK0X0X4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
           </div>
         </div>
       </div>

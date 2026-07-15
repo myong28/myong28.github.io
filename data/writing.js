@@ -15,7 +15,9 @@
      featured: false,                        // true = show on the homepage (keep ~3 featured)
    },
 
-   Then run `bash tools/make-thumbnails.sh` once to create the hover preview.
+   Then run:
+     bash tools/make-thumbnails.sh          (PDF hover preview)
+     python3 tools/fetch-share-images.py    (article share image)
    =========================================================================== */
 
 const WRITING = [

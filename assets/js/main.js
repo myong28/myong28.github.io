@@ -1,6 +1,6 @@
 /* ===========================================================================
-   Site behaviour: renders writing/research lists from the data files,
-   filter pills, PDF hover previews, quick-view modal, reveal animations.
+   Site behaviour: theme toggle, renders writing/research lists from the data
+   files, filter pills, hover previews, quick-view modal, reveal animations.
    You shouldn't need to touch this file to add content.
    =========================================================================== */
 
@@ -11,7 +11,7 @@
     opinion: "Opinion",
     article: "Article",
     media: "Media feature",
-    citation: "Citation",
+    citation: "Notable citation",
   };
 
   const fmtDate = (iso) => {
@@ -21,13 +21,50 @@
     return `${months[m - 1]} ${d}, ${y}`;
   };
 
-  const thumbFor = (pdfPath) =>
-    "thumbs/" + pdfPath.split("/").pop().replace(/\.pdf$/i, ".png");
-
   const esc = (s) =>
     String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  /* ---------------- PDF hover preview ---------------- */
+  /* ---------------- Thumbnail path helpers ---------------- */
+
+  const pdfThumb = (pdfPath) =>
+    "thumbs/" + pdfPath.split("/").pop().replace(/\.pdf$/i, ".png");
+
+  // mirrors tools/fetch-share-images.py slug logic
+  const webThumb = (item) => {
+    let slug;
+    if (item.pdf) {
+      slug = item.pdf.split("/").pop().replace(/\.pdf$/i, "");
+    } else if (item.url) {
+      slug = item.url.replace(/\/+$/, "").split("/").pop()
+        .replace(/\.html?$/, "").toLowerCase()
+        .replace(/[^a-z0-9-]/g, "-").slice(0, 70) || "article";
+    } else {
+      return null;
+    }
+    return `thumbs/web/${slug}.jpg`;
+  };
+
+  /* ---------------- Theme toggle ---------------- */
+
+  function initTheme() {
+    // The pre-paint snippet in each page's <head> already set data-theme.
+    const btn = document.getElementById("theme-toggle");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("theme", next);
+      });
+    }
+    // Follow system changes unless the visitor chose explicitly
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      if (!localStorage.getItem("theme")) {
+        document.documentElement.dataset.theme = e.matches ? "dark" : "light";
+      }
+    });
+  }
+
+  /* ---------------- Hover preview (buttons only) ---------------- */
 
   let previewEl = null;
 
@@ -35,24 +72,27 @@
     if (previewEl) return previewEl;
     previewEl = document.createElement("div");
     previewEl.className = "preview-card";
-    previewEl.innerHTML = '<img alt=""><div class="preview-card__label">Hover preview — click PDF to read</div>';
+    previewEl.innerHTML = '<img alt=""><div class="preview-card__label"></div>';
     document.body.appendChild(previewEl);
     return previewEl;
   }
 
-  function attachPreview(target, thumbSrc) {
-    if (!window.matchMedia("(hover: hover)").matches) return;
+  function attachPreview(target, thumbSrc, label) {
+    if (!thumbSrc || !window.matchMedia("(hover: hover)").matches) return;
+    let dead = false; // set if the image 404s — don't retry every hover
     target.addEventListener("mouseenter", () => {
+      if (dead) return;
       const el = ensurePreview();
       const img = el.querySelector("img");
+      el.querySelector(".preview-card__label").textContent = label;
+      img.onerror = () => { dead = true; el.classList.remove("is-visible"); };
       img.src = thumbSrc;
-      img.onerror = () => el.classList.remove("is-visible");
       el.classList.add("is-visible");
     });
     target.addEventListener("mousemove", (e) => {
-      if (!previewEl) return;
+      if (!previewEl || dead) return;
       const pad = 18;
-      const w = 240;
+      const w = 260;
       const h = previewEl.offsetHeight || 320;
       let x = e.clientX + pad;
       let y = e.clientY - h / 2;
@@ -120,7 +160,7 @@
       ["opinion", "Opinion"],
       ["article", "Articles"],
       ["media", "Media features"],
-      ["citation", "Citations"],
+      ["citation", "Notable citations"],
     ];
 
     const bar = document.createElement("div");
@@ -157,7 +197,7 @@
     function pubRow(it) {
       const row = document.createElement("article");
       row.className = "pub";
-      const badge = `<span class="pub__badge">${TYPE_LABELS[it.type] || it.type}</span>`;
+      const badge = `<span class="pub__badge pub__badge--${esc(it.type)}">${TYPE_LABELS[it.type] || it.type}</span>`;
       const note = it.note ? `<div class="pub__note">${esc(it.note)}</div>` : "";
       const titleInner = it.url
         ? `<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`
@@ -176,6 +216,7 @@
         a.target = "_blank";
         a.rel = "noopener";
         a.textContent = "Article ↗";
+        attachPreview(a, webThumb(it), esc(it.outlet));
         actions.appendChild(a);
       }
       if (it.pdf) {
@@ -183,8 +224,8 @@
         b.className = "pub__link";
         b.textContent = "PDF";
         b.addEventListener("click", () => openPdfModal(it.pdf, it.title));
+        attachPreview(b, pdfThumb(it.pdf), "PDF — click to read");
         actions.appendChild(b);
-        attachPreview(row, thumbFor(it.pdf));
       }
       return row;
     }
@@ -213,16 +254,31 @@
       const card = document.createElement("article");
       card.className = "feature-card reveal";
       const href = it.url || it.pdf || "#";
-      const thumb = it.pdf
-        ? `<img src="${thumbFor(it.pdf)}" alt="" loading="lazy" onerror="this.remove()">`
-        : "";
       card.innerHTML =
-        `<div class="feature-card__thumb">${thumb}</div>` +
+        `<div class="feature-card__thumb"></div>` +
         `<div class="feature-card__body">` +
         `  <div class="feature-card__meta">${esc(it.outlet)} · ${fmtDate(it.date)}</div>` +
         `  <h3 class="feature-card__title"><a href="${esc(href)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>` +
         `  <span class="feature-card__cta">Read piece <span class="arrow">→</span></span>` +
         `</div>`;
+
+      // thumbnail: article share image → PDF first page → outlet logo tile
+      const thumbWrap = card.querySelector(".feature-card__thumb");
+      const img = document.createElement("img");
+      img.className = "thumb";
+      img.alt = "";
+      img.loading = "lazy";
+      const fallbacks = [];
+      if (it.pdf) fallbacks.push(pdfThumb(it.pdf));
+      fallbacks.push("assets/img/logos/the-age.svg");
+      img.onerror = () => {
+        const next = fallbacks.shift();
+        if (!next) { img.remove(); return; }
+        if (next.endsWith(".svg")) img.className = "logo-tile";
+        img.src = next;
+      };
+      img.src = webThumb(it) || fallbacks.shift();
+      thumbWrap.appendChild(img);
       root.appendChild(card);
     });
   }
@@ -249,7 +305,7 @@
         `</div>`;
       items.forEach((it) => {
         const card = document.createElement("article");
-        card.className = "research-card";
+        card.className = "research-card" + (it.forthcoming ? " research-card--forthcoming" : "");
         const venue = it.venue ? `<span class="dot">·</span><span>${esc(it.venue)}</span>` : "";
         card.innerHTML =
           `<div class="research-card__meta"><span class="pub__badge">${esc(it.kind)}</span><span>${esc(it.date)}</span>${venue}</div>` +
@@ -264,8 +320,8 @@
             b.className = "pub__link";
             b.textContent = ln.label;
             b.addEventListener("click", () => openPdfModal(ln.href, it.title));
+            attachPreview(b, pdfThumb(ln.href), "PDF — click to read");
             linkWrap.appendChild(b);
-            attachPreview(b, thumbFor(ln.href));
           } else {
             const a = document.createElement("a");
             a.className = "pub__link";
@@ -307,6 +363,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initTheme();
     initNav();
     renderWriting();
     renderFeatured();
