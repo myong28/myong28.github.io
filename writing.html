@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing &amp; Media — Max Yong</title>
+  <meta name="description" content="Columns, articles, and media coverage by Max Yong in The Age, the AFR, The Australian, Times Higher Education, The Conversation and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23205fae'/><text x='50' y='68' font-size='52' font-family='Inter,Arial' font-weight='700' fill='white' text-anchor='middle'>M</text></svg>">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="index.html">
+        <span class="nav__brand-mark">MY</span>
+        <span class="full">Max Yong</span>
+      </a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="writing.html">Writing &amp; Media</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__eyebrow">Writing &amp; Media</div>
+          <h2 class="section__title">Columns, articles &amp; coverage</h2>
+          <p class="section__sub">
+            Opinion pieces and articles I've written, media features drawing on my research, and
+            places my work has been cited. Hover over an entry to preview the page; click
+            <strong>PDF</strong> for a paywall-free copy.
+          </p>
+        </div>
+        <div id="writing-root"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year">2026</span> Max Yong</div>
+      <div class="footer__links">
+        <a href="writing.html">Writing</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/writing.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
