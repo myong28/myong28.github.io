@@ -12,6 +12,17 @@ const RESEARCH = {
 
   papers: [
     {
+      kind: "Forthcoming",
+      forthcoming: true,
+      title: "University fee optimisation under policy constraints",
+      date: "In preparation",
+      summary:
+        "Academic paper developing a budget-neutral redesign of Australia's Job-ready Graduates fee " +
+        "structure (proposed in my 2026 Senate submission): correcting the scheme's price distortions " +
+        "without increasing total public outlays.",
+      links: [],
+    },
+    {
       kind: "Working paper",
       title: "University fees, subsidies and field of study",
       date: "2023",
@@ -24,24 +35,13 @@ const RESEARCH = {
         "Student preferences are negatively related to fees, but elasticities are small — consistent with " +
         "generous income-contingent loans muting price signals. Currently being prepared for journal submission.",
       links: [
-        { label: "Working paper", href: "https://melbourneinstitute.unimelb.edu.au/publications/working-papers/search/result?paper=4751741" },
+        { label: "Working paper", href: "https://melbourneinstitute.unimelb.edu.au/publications/working-papers/search/result?paper=4751741", primary: true },
         { label: "SSRN", href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4575502" },
         { label: "Pursuit summary", href: "https://pursuit.unimelb.edu.au/articles/changing-the-cost-of-some-uni-degrees-didn-t-change-students-minds" },
         { label: "The Conversation", href: "https://theconversation.com/only-1-5-of-students-swapped-fields-due-to-the-job-ready-graduates-fee-changes-215539" },
         { label: "Times Higher Education coverage", href: "https://www.timeshighereducation.com/news/massive-fees-shake-fails-reshape-student-course-choices" },
         { label: "FBE Newsroom", href: "https://fbe.unimelb.edu.au/newsroom/research-morrisons-government-job-ready-graduate-scheme-had-minimal-impact-student-enrolments" },
       ],
-    },
-    {
-      kind: "Forthcoming",
-      forthcoming: true,
-      title: "A budget-neutral fix for Job-ready Graduates",
-      date: "In preparation",
-      summary:
-        "Academic paper developing the budget-neutral redesign of the Job-ready Graduates fee structure " +
-        "proposed in my 2026 Senate submission: correcting the scheme's price distortions without " +
-        "increasing total public outlays.",
-      links: [],
     },
     {
       kind: "Honours thesis",
@@ -52,7 +52,7 @@ const RESEARCH = {
         "Honours research underpinning the Melbourne Institute working paper: an empirical analysis of how " +
         "the largest re-pricing of Australian university degrees in a generation affected what students chose to study.",
       links: [
-        { label: "Thesis (PDF)", href: "pdfs/research/2023-honours-thesis.pdf", pdf: true },
+        { label: "Thesis (PDF)", href: "pdfs/research/2023-honours-thesis.pdf", pdf: true, primary: true },
         { label: "The Age front page", href: "https://www.theage.com.au/national/victoria/i-try-not-to-think-about-it-the-soaring-cost-of-humanities-courses-at-uni-20231115-p5ek8h.html" },
         { label: "AFR coverage", href: "https://www.afr.com/work-and-careers/education/students-ignore-costs-in-choosing-university-study-analysis-20221021-p5brsw" },
       ],
@@ -69,7 +69,7 @@ const RESEARCH = {
         "fee structure, drawing on the empirical evidence that the scheme failed to shift student choices " +
         "while leaving graduates with sharply unequal debts.",
       links: [
-        { label: "Submission (PDF)", href: "pdfs/research/2026-senate-submission-jrg.pdf", pdf: true },
+        { label: "Submission (PDF)", href: "pdfs/research/2026-senate-submission-jrg.pdf", pdf: true, primary: true },
       ],
     },
     {
@@ -80,7 +80,7 @@ const RESEARCH = {
         "Descriptive analysis of international student flows into Australian higher education: visa settings, " +
         "source countries, and the policy levers shaping the intake.",
       links: [
-        { label: "Slides (PDF)", href: "pdfs/research/2025-intl-student-trends.pdf", pdf: true },
+        { label: "Slides (PDF)", href: "pdfs/research/2025-intl-student-trends.pdf", pdf: true, primary: true },
         { label: "Times Higher Education coverage", href: "https://www.timeshighereducation.com/news/new-visa-processing-directive-store-australia" },
       ],
     },

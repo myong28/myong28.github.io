@@ -153,7 +153,7 @@ const WRITING = [
     outlet: "The Scholars Podcast (John Monash Foundation)",
     date: "2024-10-31",
     url: "https://www.johnmonash.com/our-foundation/episodes/episode-82-paul-ramadge",
-    note: "Featured as 2025 John Monash ANZAK Centenary Scholar",
+    note: "Featured as 2025 John Monash ANZAC Centenary Scholar",
   },
   {
     type: "media",
@@ -210,21 +210,21 @@ const WRITING = [
     pdf: "pdfs/writing/2024-02-university-accord-actioned.pdf",
   },
   {
-    type: "citation",
+    type: "media",
     title: "Albanese's HECS relief won't fix the core problem – the fees system is broken",
     outlet: "The Age and Sydney Morning Herald",
     date: "2024-11-04",
     url: "https://www.theage.com.au/national/albanese-s-hecs-relief-won-t-fix-the-core-problem-the-fees-system-is-broken-20241103-p5knfr.html",
   },
   {
-    type: "citation",
+    type: "media",
     title: "If we want more young people to go to uni, stop screwing them over",
     outlet: "The Age and Sydney Morning Herald",
     date: "2024-02-26",
     url: "https://www.theage.com.au/national/if-we-want-more-young-people-to-go-to-uni-stop-screwing-them-over-20240225-p5f7ms.html",
   },
   {
-    type: "citation",
+    type: "media",
     title: "Universities Accord final report: what is it, and what does it recommend?",
     outlet: "The Conversation",
     date: "2024-02-25",
@@ -233,6 +233,7 @@ const WRITING = [
   {
     type: "citation",
     title: "Australian Universities Accord — Final Report",
+    linkLabel: "Report",
     outlet: "Australian Universities Accord Panel",
     date: "2024-02-23",
     url: "https://www.education.gov.au/australian-universities-accord/resources/australian-universities-accord-final-report-summary-report",
@@ -242,7 +243,7 @@ const WRITING = [
   /* ------------------------------ 2023 ------------------------------ */
 
   {
-    type: "citation",
+    type: "media",
     title: "Australia's Universities Accord – a model for British Labour?",
     outlet: "Higher Education Policy Institute",
     date: "2023-12-13",
@@ -300,14 +301,14 @@ const WRITING = [
     note: "With comment",
   },
   {
-    type: "citation",
+    type: "media",
     title: "Job-ready Graduates fails to shape student preferences",
     outlet: "DASSH",
     date: "2023-10-18",
     url: "https://dassh.edu.au/job-ready-graduates-fails-to-shape-student-preferences/",
   },
   {
-    type: "citation",
+    type: "media",
     title: "Why are university degrees in Australia getting more expensive, and how much will they cost?",
     outlet: "The Guardian",
     date: "2023-10-02",
@@ -332,7 +333,7 @@ const WRITING = [
     pdf: "pdfs/writing/2023-09-future-campus-hass.pdf",
   },
   {
-    type: "citation",
+    type: "media",
     title: "Arts, business, law students hit hardest as uni fees rise",
     outlet: "The Australian Financial Review",
     date: "2023-09-24",
@@ -342,20 +343,21 @@ const WRITING = [
   {
     type: "citation",
     title: "Australian Universities Accord — Interim Report",
+    linkLabel: "Report",
     outlet: "Australian Universities Accord Panel",
     date: "2023-07-19",
     url: "https://www.education.gov.au/australian-universities-accord/resources/accord-interim-report",
     note: "Research cited on page 129",
   },
   {
-    type: "citation",
+    type: "media",
     title: "How to lift education levels in rural towns cheaply and easily",
     outlet: "The Australian Financial Review",
     date: "2023-07-03",
     url: "https://www.afr.com/work-and-careers/education/how-to-lift-education-levels-in-rural-towns-cheaply-and-easily-20230622-p5dims",
   },
   {
-    type: "citation",
+    type: "media",
     title: "A stunning achievement: WSU's global No. 1 sustainability ranking",
     outlet: "The Australian Financial Review",
     date: "2023-06-04",
@@ -364,6 +366,7 @@ const WRITING = [
   {
     type: "citation",
     title: "The 5-year Productivity Inquiry Report",
+    linkLabel: "Report",
     outlet: "The Productivity Commission",
     date: "2023-03-17",
     url: "https://www.pc.gov.au/inquiries/completed/productivity/report",
@@ -381,6 +384,7 @@ const WRITING = [
   {
     type: "citation",
     title: "Submission on priority student funding policy issues for the Universities Accord",
+    linkLabel: "Submission",
     outlet: "Professor Andrew Norton",
     date: "2023-01-03",
     url: "https://www.education.gov.au/australian-universities-accord/consultations/consultation-accord-terms-reference/submission/15035",

@@ -49,17 +49,23 @@
   function initTheme() {
     // The pre-paint snippet in each page's <head> already set data-theme.
     const btn = document.getElementById("theme-toggle");
+    const sync = () => {
+      if (btn) btn.setAttribute("aria-checked", document.documentElement.dataset.theme === "dark");
+    };
+    sync();
     if (btn) {
       btn.addEventListener("click", () => {
         const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
         document.documentElement.dataset.theme = next;
         localStorage.setItem("theme", next);
+        sync();
       });
     }
     // Follow system changes unless the visitor chose explicitly
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
       if (!localStorage.getItem("theme")) {
         document.documentElement.dataset.theme = e.matches ? "dark" : "light";
+        sync();
       }
     });
   }
@@ -215,7 +221,7 @@
         a.href = it.url;
         a.target = "_blank";
         a.rel = "noopener";
-        a.textContent = "Article ↗";
+        a.textContent = (it.linkLabel || "Article") + " ↗";
         attachPreview(a, webThumb(it), esc(it.outlet));
         actions.appendChild(a);
       }
@@ -315,16 +321,17 @@
           `<div class="research-card__links"></div>`;
         const linkWrap = card.querySelector(".research-card__links");
         (it.links || []).forEach((ln) => {
+          const cls = "pub__link" + (ln.primary ? " pub__link--primary" : "");
           if (ln.pdf) {
             const b = document.createElement("button");
-            b.className = "pub__link";
+            b.className = cls;
             b.textContent = ln.label;
             b.addEventListener("click", () => openPdfModal(ln.href, it.title));
             attachPreview(b, pdfThumb(ln.href), "PDF — click to read");
             linkWrap.appendChild(b);
           } else {
             const a = document.createElement("a");
-            a.className = "pub__link";
+            a.className = cls;
             a.href = ln.href;
             a.target = "_blank";
             a.rel = "noopener";

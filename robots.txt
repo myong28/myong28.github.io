@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /pdfs/
 
-Sitemap: https://myong28.github.io/sitemap.xml
+Sitemap: https://maxyong.au/sitemap.xml
