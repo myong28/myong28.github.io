@@ -347,7 +347,7 @@
           `<div class="research-card__links"></div>`;
         const linkWrap = card.querySelector(".research-card__links");
         (it.links || []).forEach((ln) => {
-          const cls = "pub__link" + (ln.primary ? " pub__link--primary" : "");
+          const cls = "pub__link" + (ln.primary ? " pub__link--primary" : "") + (ln.tool ? " pub__link--tool" : "");
           if (ln.pdf) {
             const b = document.createElement("button");
             b.className = cls;

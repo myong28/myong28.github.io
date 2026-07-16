@@ -584,6 +584,12 @@ img { max-width: 100%; display: block; }
 [data-theme="dark"] .pub__link--primary { background: #2e7cd6; border-color: #2e7cd6; color: #fff; }
 [data-theme="dark"] .pub__link--primary:hover { background: #4a90de; border-color: #4a90de; }
 
+/* Interactive tool link (a different category from papers/coverage) */
+.pub__link--tool { background: #0d9488; border-color: #0d9488; color: #fff; }
+.pub__link--tool:hover { background: #0f766e; border-color: #0f766e; color: #fff; }
+[data-theme="dark"] .pub__link--tool { background: #14b8a6; border-color: #14b8a6; color: #06211d; }
+[data-theme="dark"] .pub__link--tool:hover { background: #2dd4bf; border-color: #2dd4bf; color: #06211d; }
+
 /* Floating hover preview (PDF page or article share image) */
 
 .preview-card {
@@ -701,6 +707,12 @@ img { max-width: 100%; display: block; }
   padding-top: 12px;
   text-align: center;
 }
+
+a.research-figure { display: block; }
+
+a.research-figure img { transition: transform 0.3s ease; }
+
+a.research-figure:hover img { transform: scale(1.015); }
 
 [data-theme="dark"] .research-figure { border-color: #2a4a7a; }
 [data-theme="dark"] .research-figure figcaption { color: #5c6b80; }

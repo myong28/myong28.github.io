@@ -77,6 +77,7 @@ const RESEARCH = {
         "while leaving graduates with sharply unequal debts.",
       links: [
         { label: "Submission (PDF)", href: "pdfs/research/2026-senate-submission-jrg.pdf", pdf: true, primary: true },
+        { label: "Interactive fee optimiser", href: "/jrg-fee-optimiser/", tool: true },
       ],
     },
     {
