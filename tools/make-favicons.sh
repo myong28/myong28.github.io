@@ -22,4 +22,8 @@ for size, name in [(32, "favicon-32.png"), (192, "favicon-192.png"), (180, "appl
         img = plate.convert("RGB")
     img.save(f"assets/img/{name}", optimize=True)
     print("wrote", f"assets/img/{name}")
+
+src.resize((48, 48), Image.LANCZOS).save(
+    "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+print("wrote favicon.ico")
 EOF
