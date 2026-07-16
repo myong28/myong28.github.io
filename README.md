@@ -177,9 +177,14 @@ configure anything else.
 2. Google shows a TXT record. In Squarespace DNS (same screen as step 1.1),
    add it: Type **TXT**, Host **@**, Data = the `google-site-verification=…`
    string. Back in Search Console, click **Verify** (may need a few minutes).
-3. In Search Console: **Sitemaps** → enter `sitemap.xml` → Submit.
+3. In Search Console: **Sitemaps** → enter the FULL URL
+   `https://maxyong.au/sitemap.xml` → Submit. (Domain properties reject the
+   short `sitemap.xml` form.) If it says "could not be read" right after the
+   domain went live, that's a caching race from the DNS/certificate switch —
+   Google retries automatically within a day or two and it flips to Success.
 4. **URL Inspection** (top bar) → paste `https://maxyong.au/` →
-   **Request indexing**. Repeat for `/writing.html` and `/research.html`.
+   **Request indexing**. Repeat for `/writing.html` and `/research.html` —
+   this works immediately and doesn't depend on the sitemap.
 
 This typically gets the new domain into Google within days.
 
