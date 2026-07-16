@@ -16,7 +16,7 @@
     "The Conversation": "assets/img/logos/conversation.png",
     "ABC News": "assets/img/logos/abc-news.svg",
     "Pursuit (University of Melbourne)": "assets/img/logos/sq-unimelb.png",
-    "Melbourne University FBE Newsroom": "assets/img/logos/sq-unimelb.png",
+    "Melbourne University Newsroom": "assets/img/logos/sq-unimelb.png",
     "The Scholars Podcast (John Monash Foundation)": "assets/img/logos/sq-monash.png",
     "The Policymaker (Australian Public Policy Institute)": "assets/img/logos/sq-appi.png",
     "The Productivity Commission": "assets/img/logos/sq-pc.png",

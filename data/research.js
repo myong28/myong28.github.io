@@ -36,11 +36,10 @@ const RESEARCH = {
         "generous income-contingent loans muting price signals. Currently being prepared for journal submission.",
       links: [
         { label: "Working paper", href: "https://melbourneinstitute.unimelb.edu.au/publications/working-papers/search/result?paper=4751741", primary: true },
-        { label: "SSRN", href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4575502" },
         { label: "Pursuit summary", href: "https://pursuit.unimelb.edu.au/articles/changing-the-cost-of-some-uni-degrees-didn-t-change-students-minds" },
         { label: "The Conversation", href: "https://theconversation.com/only-1-5-of-students-swapped-fields-due-to-the-job-ready-graduates-fee-changes-215539" },
         { label: "Times Higher Education coverage", href: "https://www.timeshighereducation.com/news/massive-fees-shake-fails-reshape-student-course-choices" },
-        { label: "FBE Newsroom", href: "https://fbe.unimelb.edu.au/newsroom/research-morrisons-government-job-ready-graduate-scheme-had-minimal-impact-student-enrolments" },
+        { label: "Melbourne University newsroom", href: "https://fbe.unimelb.edu.au/newsroom/research-morrisons-government-job-ready-graduate-scheme-had-minimal-impact-student-enrolments" },
       ],
     },
     {
@@ -52,16 +51,16 @@ const RESEARCH = {
         "The research underpinning the Melbourne Institute working paper: an empirical analysis of how " +
         "the largest re-pricing of Australian university degrees in a generation affected what students chose to study.",
       quotes: [
-        { text: "\u2026did the first proper econometric analysis of the Coalition\u2019s university fee package.", source: "The Australian" },
-        { text: "It\u2019s an emperor\u2019s new clothes situation. [\u2026] the first to make an evidence-based assessment that the minister\u2019s policy was bereft of sense or reason.", source: "The Australian" },
+        { text: "First proper econometric analysis of the Coalition\u2019s university fee package.", source: "The Australian" },
+        { text: "It\u2019s an emperor\u2019s new clothes situation. Yong was the first to make an evidence-based assessment that the minister\u2019s policy was bereft of sense or reason.", source: "The Australian" },
       ],
       links: [
         { label: "Thesis (PDF)", href: "pdfs/research/2023-honours-thesis.pdf", pdf: true, primary: true },
-        { label: "My AFR op-ed", href: "https://www.afr.com/policy/health-and-education/university-review-must-consider-fairness-and-quality-education-20221118-p5bzf6" },
+        { label: "AFR oped", href: "https://www.afr.com/policy/health-and-education/university-review-must-consider-fairness-and-quality-education-20221118-p5bzf6" },
         { label: "The Age", href: "https://www.theage.com.au/national/victoria/i-try-not-to-think-about-it-the-soaring-cost-of-humanities-courses-at-uni-20231115-p5ek8h.html" },
-        { label: "AFR", href: "https://www.afr.com/work-and-careers/education/students-ignore-costs-in-choosing-university-study-analysis-20221021-p5brsw" },
-        { label: "The Australian", href: "https://www.theaustralian.com.au/higher-education/labors-next-steps-in-higher-education-must-include-fee-reform/news-story/85c9e14bf5760562ca24d36190b7fb11" },
-        { label: "The Australian (2)", href: "https://www.theaustralian.com.au/higher-education/coalitions-course-fee-shakeup-fails-to-change-students-choice/news-story/7cde12db1b959099d3f4103624553152" },
+        { label: "AFR coverage", href: "https://www.afr.com/work-and-careers/education/students-ignore-costs-in-choosing-university-study-analysis-20221021-p5brsw" },
+        { label: "Australian editorial", href: "https://www.theaustralian.com.au/higher-education/labors-next-steps-in-higher-education-must-include-fee-reform/news-story/85c9e14bf5760562ca24d36190b7fb11" },
+        { label: "Australian coverage", href: "https://www.theaustralian.com.au/higher-education/coalitions-course-fee-shakeup-fails-to-change-students-choice/news-story/7cde12db1b959099d3f4103624553152" },
         { label: "Campus Morning Mail", href: "https://campusmorningmail.com.au/news/job-ready-graduates-does-not-work-at-any-price/" },
       ],
     },

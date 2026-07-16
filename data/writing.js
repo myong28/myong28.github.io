@@ -294,7 +294,7 @@ const WRITING = [
   {
     type: "media",
     title: "Research: Morrison Government's Job-Ready Graduate Scheme had minimal impact on student enrolments",
-    outlet: "Melbourne University FBE Newsroom",
+    outlet: "Melbourne University Newsroom",
     date: "2023-11-08",
     url: "https://fbe.unimelb.edu.au/newsroom/research-morrisons-government-job-ready-graduate-scheme-had-minimal-impact-student-enrolments",
     pdf: "pdfs/writing/2023-11-fbe-newsroom-jrg.pdf",
