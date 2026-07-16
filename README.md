@@ -29,7 +29,16 @@ top of `assets/css/style.css`.
    python3 tools/fetch-share-images.py
    git add . && git commit -m "Add article" && git push
    ```
-   Live in ~1 minute.
+   Live in ~1 minute. (Your browser caches files for 10 minutes — check in a
+   private window to see changes immediately.)
+
+## Adding research / quotes
+
+Edit `data/research.js` — copy an existing block. Mark the main artifact link
+`primary: true` (blue button). Cards can carry press pull-quotes:
+```js
+quotes: [ { text: "…verbatim excerpt.", source: "The Australian" } ],
+```
 
 ## Swapping the logo/monogram
 
@@ -40,6 +49,8 @@ cd "/Users/myong/My Drive/1. Documents/1. Education/3. Research/0. Website"
 bash tools/make-favicons.sh
 git add . && git commit -m "New logo" && git push
 ```
+Then bump the favicon version in the four HTML files (search `?v=3`, make it
+`?v=4`) so browsers refetch.
 
 ## Local preview
 
@@ -51,109 +62,177 @@ Then open http://localhost:8000
 
 ---
 
-# One-time setup: domains, migration & SEO
+# PART 1 — Connect maxyong.au (bought on Squarespace)
 
-Do these in order. Steps 1–2 make maxyong.au live; 3–5 move your Google
-standing across.
+Total time: ~15 minutes of clicking, then some waiting for DNS.
 
-## 1. Point maxyong.au at the site
+### Step 1.1 — Add the DNS records in Squarespace
 
-**a) At your domain registrar** (where you bought maxyong.au — e.g.
-Squarespace: Domains → maxyong.au → DNS settings), add these records:
+1. Log in to Squarespace → account menu → **Domains**
+   (direct link: https://account.squarespace.com/domains)
+2. Click **maxyong.au** → **DNS** (sometimes labelled "DNS Settings").
+3. If there are preset records pointing at Squarespace (A records to
+   198.185.159.x / 198.49.23.x, or a CNAME named `www` pointing to
+   `ext-cust.squarespace.com`) — **delete those**. They're Squarespace's
+   parking/website records and will conflict.
+4. Click **Add record** five times and enter exactly:
 
-| Type  | Host / Name | Value               |
-|-------|-------------|---------------------|
-| A     | @           | 185.199.108.153     |
-| A     | @           | 185.199.109.153     |
-| A     | @           | 185.199.110.153     |
-| A     | @           | 185.199.111.153     |
-| CNAME | www         | myong28.github.io   |
+   | Type  | Host  | Data / Value        |
+   |-------|-------|---------------------|
+   | A     | @     | 185.199.108.153     |
+   | A     | @     | 185.199.109.153     |
+   | A     | @     | 185.199.110.153     |
+   | A     | @     | 185.199.111.153     |
+   | CNAME | www   | myong28.github.io   |
 
-**b) On GitHub**: https://github.com/myong28/myong28.github.io/settings/pages
-→ Custom domain → type `maxyong.au` → Save. GitHub adds a `CNAME` file to the
-repo (afterwards run `git pull` locally so you have it too):
+   (If Squarespace shows "Host" as blank instead of `@`, leave it blank —
+   same thing.)
 
+### Step 1.2 — Tell GitHub about the domain
+
+1. Open https://github.com/myong28/myong28.github.io/settings/pages
+2. Under **Custom domain**, type `maxyong.au` → **Save**.
+3. GitHub runs a DNS check. If it fails, wait 30–60 minutes and press
+   "Check again" — .au DNS usually propagates fast but can take a few hours.
+4. When the check passes, tick **Enforce HTTPS** (the option appears once
+   GitHub has issued the certificate — up to ~1 hour after the check passes).
+
+### Step 1.3 — Pull the CNAME file GitHub created
+
+GitHub added a `CNAME` file to the repo. In **Terminal**:
 ```bash
 cd "/Users/myong/My Drive/1. Documents/1. Education/3. Research/0. Website"
 git pull
 ```
 
-**c) Wait for the DNS check** on that settings page (minutes to a few hours),
-then tick **Enforce HTTPS**.
+**Done.** The site now serves at https://maxyong.au, and
+https://myong28.github.io automatically redirects there — every old link
+keeps working. Nothing in the site's code needs changing (canonical tags,
+sitemap and structured data already point at maxyong.au).
 
-Done: the site serves at https://maxyong.au and https://myong28.github.io
-automatically redirects there — old links keep working.
+### Step 1.4 — The second .au domain (optional, when ready)
 
-## 2. Redirect the second domain
+In Squarespace: Domains → the other domain → look for **Forwarding** /
+"Forward domain". Forward to `https://maxyong.au`, choose **301 Permanent**.
+Do NOT add the DNS records from 1.1 to this domain — forwarding only.
 
-At the registrar for your second domain (myong.au), don't add DNS records —
-use the registrar's **domain forwarding** feature (Squarespace: Domains →
-domain → Forwarding): forward to `https://maxyong.au`, type **301
-(permanent)**, "forward path" on if offered. A 301 tells Google it's the same
-site, so it passes any standing along rather than competing.
+---
 
-## 3. Google Search Console (~10 minutes, highest-value step)
+# PART 2 — Adding project sub-sites (e.g. a JRG fee explorer)
 
-1. Go to https://search.google.com/search-console → Add property → choose
-   **Domain** → enter `maxyong.au`.
-2. It shows a TXT record — add it at the registrar's DNS settings (same place
-   as step 1a), click Verify.
-3. In Search Console: **Sitemaps** → submit `https://maxyong.au/sitemap.xml`.
-4. **URL inspection** → enter `https://maxyong.au/` → Request indexing.
+Once the custom domain is live, anything you publish on GitHub Pages under
+your account automatically appears under **maxyong.au** — you never buy or
+configure anything else.
 
-This gets the new domain indexed within days instead of weeks, and gives you
-the dashboard showing exactly how you appear in Google.
+### Option A — a folder in this repo (best for simple pages)
 
-## 4. Migrate from the old Google Site
+1. Create the folder with an index file:
+   ```
+   0. Website/jrg-fee-explorer/index.html
+   ```
+2. Commit + push as usual. It's live at **https://maxyong.au/jrg-fee-explorer/**
+3. It has no nav link, so it's invisible until you link it. Add it to the
+   relevant research card in `data/research.js`:
+   ```js
+   { label: "Interactive fee explorer", href: "jrg-fee-explorer/" },
+   ```
 
-Google Sites can't do real redirects, so the handover is done with links:
+### Option B — its own GitHub repo (best for real apps)
 
-1. **Now**: edit https://sites.google.com/view/maxyong/home — strip it down
-   to a single page saying "I've moved" with a prominent link to
-   https://maxyong.au. Remove the old content so Google stops treating it as
-   the canonical source (duplicate content splits your ranking).
-2. **Same day**: update the website/URL field everywhere it appears —
-   LinkedIn, Google Scholar profile, UniMelb Find an Expert, John Monash
-   profile, The Age author bio if possible, X/Twitter, email signatures.
-   This link graph is what actually transfers your search standing.
-3. **In ~3–6 months**, once `maxyong.au` ranks first for "Max Yong"
-   (check in Search Console), unpublish the Google Site: old site →
-   Settings (gear) → ⋮ → Unpublish. Don't rush this — the pointer page does
-   useful work while Google re-learns.
+1. Create a new repo at https://github.com/new — name it e.g.
+   `jrg-fee-explorer` (the name becomes the URL path).
+2. Push the app's code to it. If it's plain HTML, that's all; if it's a
+   React/whatever app, its build output needs to land on the branch Pages
+   serves.
+3. In that repo: Settings → Pages → Source: "Deploy from a branch" →
+   `main` / root → Save.
+4. It appears at **https://maxyong.au/jrg-fee-explorer/** automatically
+   (project sites inherit the user site's custom domain).
+5. Link it from `data/research.js` with the full path `jrg-fee-explorer/`.
 
-## 5. Keeping the knowledge panel
+### Can the repos be private?
 
-Knowledge panels are built from a consistent "same person" signal across the
-web. The site already provides your half:
+- On GitHub's **free plan: no** — a repo must be **public** for GitHub Pages
+  to serve it. Note this is rarely a real problem for a static site: the
+  "source" is the same HTML/CSS/JS the public website already ships to every
+  visitor, so making the repo public reveals nothing extra. (This main site
+  repo must stay public regardless — it also holds the PDFs, which are
+  already public URLs.)
+- If you genuinely want private source (e.g. an app with embarrassing code
+  or data-prep scripts): **GitHub Pro** (US$4/month) allows Pages from
+  private repos — site stays public, source goes private. Alternative free
+  pattern: keep a private repo for the messy work, and copy only the built,
+  public-safe output into a public repo (or into a folder here, Option A).
+- Never put actual secrets (API keys, unpublished data) in ANY Pages repo,
+  public or private — everything Pages serves is world-readable by URL.
 
-- JSON-LD `Person` markup on the homepage with `sameAs` links to LinkedIn,
-  Scholar, Find an Expert, John Monash, and The Age — **keep these current**;
-  they're in the `<script type="application/ld+json">` block in `index.html`.
-- If you have a knowledge panel now, **claim it**: google yourself, click
-  "Claim this knowledge panel", verify via your Google account. Once claimed
-  you can suggest the new website URL directly.
-- The reciprocal links from step 4.2 close the loop (Google sees maxyong.au
-  ↔ your profiles pointing at each other).
+---
 
-## SEO: what's already built in
+# PART 3 — SEO + moving over from Google Sites
 
-- **Structured data**: schema.org `Person` (JSON-LD) on the homepage.
-- **Canonical URLs** on every page pointing to maxyong.au.
-- **Open Graph tags** on every page (title/description/portrait image) — so
-  shares on LinkedIn/X/Slack render rich cards.
-- **sitemap.xml** + **robots.txt** (which also blocks `/pdfs/` from indexing
-  so the paywall-free copies don't surface in Google against publishers'
-  paywalls — visitors can still open them).
-- **Unique titles + meta descriptions** per page.
-- Semantic HTML (one `h1`, proper heading order), alt text on images, `lang`
-  attribute, mobile responsive, and no framework bloat — the site loads fast,
-  which is itself a ranking factor.
+### Step 3.1 — Google Search Console (~10 min, do this first)
 
-Ongoing habits that matter more than any tag:
-- Keep publishing — fresh content on a domain is the strongest signal.
-- When you add an article, the share image (fetched automatically) keeps
-  rich previews working.
-- Once a year, glance at Search Console for crawl errors.
-- If you ever change domains again: update `sitemap.xml`, `robots.txt`, and
-  the canonical/og/JSON-LD URLs in the four HTML files (search the repo for
-  `maxyong.au`), then Search Console → Settings → Change of address.
+1. Go to https://search.google.com/search-console → **Add property** →
+   choose the **Domain** type → enter `maxyong.au`.
+2. Google shows a TXT record. In Squarespace DNS (same screen as step 1.1),
+   add it: Type **TXT**, Host **@**, Data = the `google-site-verification=…`
+   string. Back in Search Console, click **Verify** (may need a few minutes).
+3. In Search Console: **Sitemaps** → enter `sitemap.xml` → Submit.
+4. **URL Inspection** (top bar) → paste `https://maxyong.au/` →
+   **Request indexing**. Repeat for `/writing.html` and `/research.html`.
+
+This typically gets the new domain into Google within days.
+
+### Step 3.2 — Point the old Google Site here
+
+Google Sites can't do real redirects, so do this by hand at
+https://sites.google.com/view/maxyong/home (Edit mode):
+
+1. Strip the homepage down to one short block: *"This site has moved →
+   **maxyong.au**"* with a big link. Delete the other pages' content (keep
+   the pages, empty or with the same pointer, so old deep links still land
+   somewhere useful).
+2. Publish. Leaving this pointer up is *good* — don't unpublish yet.
+
+### Step 3.3 — Update your profile links (the real SEO transfer)
+
+Same day, change the website field to `https://maxyong.au` on:
+- LinkedIn (Contact info → Website)
+- Google Scholar profile (Homepage field)
+- UniMelb Find an Expert (ask the faculty web team if not self-serve)
+- John Monash Foundation profile (email them)
+- The Age author bio if the editor will update it
+- Email signatures, X/Twitter bio, anywhere else
+
+This cross-link graph — your profiles pointing at maxyong.au and the site's
+JSON-LD `sameAs` pointing back at them — is what actually moves your search
+ranking and sustains the knowledge panel.
+
+### Step 3.4 — Knowledge panel
+
+If Google shows a knowledge panel for you: search your own name, click
+**Claim this knowledge panel**, verify with your Google account, then use
+"Suggest edits" to set the website to maxyong.au.
+
+### Step 3.5 — Decommission the Google Site (later)
+
+After ~3–6 months, once searching "Max Yong" shows maxyong.au first (watch
+this in Search Console → Performance), unpublish the old site:
+Google Sites → Settings gear → ⋮ menu → **Unpublish**. No rush — the pointer
+page keeps doing useful work until then.
+
+### What's already SEO-optimised in the site (no action needed)
+
+- JSON-LD `Person` structured data with `sameAs` profile links (homepage)
+- Canonical URLs, unique titles + meta descriptions, Open Graph tags on
+  every page (rich cards when shared on LinkedIn/X/Slack)
+- `sitemap.xml` + `robots.txt` (which blocks `/pdfs/` from indexing so the
+  paywall-free copies don't surface against publishers' paywalls)
+- Semantic HTML, alt text, mobile responsive, near-instant load (no
+  frameworks) — page speed is a ranking factor
+
+### Ongoing habits
+
+- Keep publishing — fresh content is the strongest signal there is.
+- Glance at Search Console every few months for crawl errors.
+- Keep the `sameAs` links in `index.html` current if your profiles change.
