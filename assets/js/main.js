@@ -341,6 +341,9 @@
           `<h3>${esc(it.title)}</h3>` +
           (it.authors ? `<div class="research-card__authors">${esc(it.authors)}</div>` : "") +
           (it.summary ? `<p>${esc(it.summary)}</p>` : "") +
+          (it.quotes || []).map((q) =>
+            `<blockquote class="research-card__quote">\u201C${esc(q.text)}\u201D<cite>\u2014 ${esc(q.source)}</cite></blockquote>`
+          ).join("") +
           `<div class="research-card__links"></div>`;
         const linkWrap = card.querySelector(".research-card__links");
         (it.links || []).forEach((ln) => {

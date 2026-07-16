@@ -741,6 +741,21 @@ img { max-width: 100%; display: block; }
 
 .research-card__authors { font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 14px; }
 
+.research-card__quote {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 2px solid var(--blue-100);
+  padding: 1px 0 1px 14px;
+  margin: 10px 0 2px;
+  line-height: 1.55;
+  max-width: 66ch;
+}
+
+.research-card__quote cite { font-style: normal; font-size: 12.5px; color: var(--faint); margin-left: 8px; white-space: nowrap; }
+
+[data-theme="dark"] .research-card__quote { border-left-color: #2a4a7a; }
+
 .research-card__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 
 /* --------------------------------------------------------------------------

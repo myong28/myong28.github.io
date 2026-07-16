@@ -51,6 +51,10 @@ const RESEARCH = {
       summary:
         "The research underpinning the Melbourne Institute working paper: an empirical analysis of how " +
         "the largest re-pricing of Australian university degrees in a generation affected what students chose to study.",
+      quotes: [
+        { text: "\u2026did the first proper econometric analysis of the Coalition\u2019s university fee package.", source: "The Australian" },
+        { text: "It\u2019s an emperor\u2019s new clothes situation. [\u2026] the first to make an evidence-based assessment that the minister\u2019s policy was bereft of sense or reason.", source: "The Australian" },
+      ],
       links: [
         { label: "Thesis (PDF)", href: "pdfs/research/2023-honours-thesis.pdf", pdf: true, primary: true },
         { label: "My AFR op-ed", href: "https://www.afr.com/policy/health-and-education/university-review-must-consider-fairness-and-quality-education-20221118-p5bzf6" },
