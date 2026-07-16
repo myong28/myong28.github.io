@@ -56,9 +56,10 @@ Then bump the favicon version in the four HTML files (search `?v=3`, make it
 
 ```bash
 cd "/Users/myong/My Drive/1. Documents/1. Education/3. Research/0. Website"
-python3 -m http.server 8000
+python3 tools/serve.py
 ```
-Then open http://localhost:8000
+Then open http://localhost:8000 — this small server resolves the clean URLs
+(/writing, /research, /contact) the same way GitHub Pages does.
 
 ---
 
@@ -183,8 +184,15 @@ configure anything else.
    domain went live, that's a caching race from the DNS/certificate switch —
    Google retries automatically within a day or two and it flips to Success.
 4. **URL Inspection** (top bar) → paste `https://maxyong.au/` →
-   **Request indexing**. Repeat for `/writing.html` and `/research.html` —
-   this works immediately and doesn't depend on the sitemap.
+   **Request indexing**. Repeat for the clean URLs
+   `https://maxyong.au/writing`, `/research` and `/contact` — this works
+   immediately and doesn't depend on the sitemap.
+
+   Note: the site uses extensionless URLs (`/writing`, not `/writing.html`).
+   Both forms load, but canonical tags, the sitemap and all internal links
+   use the clean form, so that's what Google indexes. If you already
+   requested indexing on a `.html` URL, no harm — its canonical points
+   Google to the clean one.
 
 This typically gets the new domain into Google within days.
 

@@ -389,9 +389,10 @@
   /* ---------------- Active nav link ---------------- */
 
   function initNav() {
-    const path = location.pathname.split("/").pop() || "index.html";
+    const norm = (p) => (p.split("/").pop() || "").replace(/\.html$/, "") || "index";
+    const path = norm(location.pathname);
     document.querySelectorAll(".nav__links a").forEach((a) => {
-      if (a.getAttribute("href") === path) a.classList.add("is-active");
+      if (norm(a.getAttribute("href")) === path) a.classList.add("is-active");
     });
   }
 
