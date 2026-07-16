@@ -585,10 +585,10 @@ img { max-width: 100%; display: block; }
 [data-theme="dark"] .pub__link--primary:hover { background: #4a90de; border-color: #4a90de; }
 
 /* Interactive tool link (a different category from papers/coverage) */
-.pub__link--tool { background: #0d9488; border-color: #0d9488; color: #fff; }
-.pub__link--tool:hover { background: #0f766e; border-color: #0f766e; color: #fff; }
-[data-theme="dark"] .pub__link--tool { background: #14b8a6; border-color: #14b8a6; color: #06211d; }
-[data-theme="dark"] .pub__link--tool:hover { background: #2dd4bf; border-color: #2dd4bf; color: #06211d; }
+.pub__link--tool { background: var(--navy-800); border-color: var(--navy-800); color: #fff; }
+.pub__link--tool:hover { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
+[data-theme="dark"] .pub__link--tool { background: #86b8ec; border-color: #86b8ec; color: #0c1f3a; }
+[data-theme="dark"] .pub__link--tool:hover { background: #a9cdf2; border-color: #a9cdf2; color: #0c1f3a; }
 
 /* Floating hover preview (PDF page or article share image) */
 
@@ -706,6 +706,42 @@ img { max-width: 100%; display: block; }
   color: var(--muted);
   padding-top: 12px;
   text-align: center;
+}
+
+/* Mirrored split (image left on desktop, text first on mobile) */
+.research-split--flip { grid-template-columns: 440px 1fr; }
+.research-split--flip > :first-child { order: 2; }
+.research-split--flip > :last-child { order: 1; }
+
+/* Click-to-enlarge figure */
+figure.research-figure[data-lightbox] { cursor: zoom-in; }
+
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw;
+  background: rgba(8, 21, 39, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: zoom-out;
+}
+
+.img-lightbox.is-open { display: flex; animation: fadeIn 0.2s ease; }
+
+.img-lightbox img {
+  max-width: min(1200px, 92vw);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: var(--shadow-lg);
+  animation: popIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 a.research-figure { display: block; }
@@ -950,6 +986,7 @@ a.research-figure:hover img { transform: scale(1.015); }
   .featured-grid { grid-template-columns: 1fr; }
   .roles { grid-template-columns: 1fr; }
   .research-split { grid-template-columns: 1fr; gap: 32px; }
+  .research-split--flip > * { order: initial; }
 }
 
 @media (max-width: 700px) {

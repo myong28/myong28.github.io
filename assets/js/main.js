@@ -371,6 +371,37 @@
     });
   }
 
+  /* ---------------- Image lightbox ---------------- */
+
+  function initLightbox() {
+    const triggers = document.querySelectorAll("[data-lightbox]");
+    if (!triggers.length) return;
+    let box = null;
+    const open = (src, alt) => {
+      if (!box) {
+        box = document.createElement("div");
+        box.className = "img-lightbox";
+        box.innerHTML = '<img alt="">';
+        document.body.appendChild(box);
+        box.addEventListener("click", () => box.classList.remove("is-open"));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") box.classList.remove("is-open");
+        });
+      }
+      const img = box.querySelector("img");
+      img.src = src;
+      img.alt = alt || "";
+      box.classList.add("is-open");
+    };
+    triggers.forEach((el) => {
+      const img = el.querySelector("img");
+      el.addEventListener("click", () => open(img.src, img.alt));
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(img.src, img.alt); }
+      });
+    });
+  }
+
   /* ---------------- Reveal on scroll ---------------- */
 
   function initReveal() {
@@ -399,6 +430,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     initNav();
+    initLightbox();
     renderWriting();
     renderFeatured();
     renderResearch();
