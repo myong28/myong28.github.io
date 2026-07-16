@@ -180,17 +180,17 @@ const WRITING = [
   {
     type: "opinion",
     title: "How high schools can best prepare students for the real world",
-    outlet: "The Policymaker (James Martin Institute)",
+    outlet: "The Policymaker (Australian Public Policy Institute)",
     date: "2024-04-29",
-    url: "https://thepolicymaker.jmi.org.au/how-high-schools-can-best-prepare-students-for-the-real-world/",
+    url: "https://thepolicymaker.appi.org.au/how-high-schools-can-best-prepare-students-for-the-real-world/",
     pdf: "pdfs/writing/2024-04-jmi-high-schools-real-world.pdf",
   },
   {
     type: "opinion",
     title: "Getting the tertiary transition right: six things high schools can do to set students up for success at university",
-    outlet: "The Policymaker (James Martin Institute)",
+    outlet: "The Policymaker (Australian Public Policy Institute)",
     date: "2024-03-20",
-    url: "https://thepolicymaker.jmi.org.au/getting-the-tertiary-transition-right-six-things-high-schools-can-do-to-set-students-up-for-success-at-university/",
+    url: "https://thepolicymaker.appi.org.au/getting-the-tertiary-transition-right-six-things-high-schools-can-do-to-set-students-up-for-success-at-university/",
     pdf: "pdfs/writing/2024-03-jmi-tertiary-transition.pdf",
   },
   {

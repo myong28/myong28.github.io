@@ -18,7 +18,7 @@
     "Pursuit (University of Melbourne)": "assets/img/logos/sq-unimelb.png",
     "Melbourne University FBE Newsroom": "assets/img/logos/sq-unimelb.png",
     "The Scholars Podcast (John Monash Foundation)": "assets/img/logos/sq-monash.png",
-    "The Policymaker (James Martin Institute)": "assets/img/logos/sq-jmi.png",
+    "The Policymaker (Australian Public Policy Institute)": "assets/img/logos/sq-appi.png",
     "The Productivity Commission": "assets/img/logos/sq-pc.png",
     "Australian Universities Accord Panel": "assets/img/logos/sq-govau.png",
     "Future Campus": "assets/img/logos/sq-futurecampus.png",
