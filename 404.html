@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Max Yong</title>
+  <meta name="robots" content="noindex">
+  <script>
+    (function () {
+      var t = localStorage.getItem("theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=3">
+</head>
+<body>
+  <main>
+    <section class="section" style="min-height: 80vh; display: flex; align-items: center;">
+      <div class="container" style="text-align: center;">
+        <img src="/assets/img/monogram.png" alt="" style="width: 72px; margin: 0 auto 24px;">
+        <h1 style="font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px;">Page not found</h1>
+        <p style="color: var(--muted); margin-bottom: 28px;">That page doesn't exist — it may have moved when the site was redesigned.</p>
+        <div class="hero__actions" style="justify-content: center;">
+          <a class="btn btn--primary" href="/">Go home</a>
+          <a class="btn btn--ghost" href="/writing">Writing &amp; Media</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
