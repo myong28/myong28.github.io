@@ -104,6 +104,22 @@ const WRITING = [
   /* ------------------------------ 2025 ------------------------------ */
 
   {
+    type: "citation",
+    title: "Perceptions, practices and presentations of employability: How graduates navigate the education-to-employment transition",
+    outlet: "PhD thesis \u2014 Tanya Weiler, University of the Sunshine Coast",
+    date: "2025-08-05",
+    url: "https://research.usc.edu.au/esploro/outputs/doctoral/Perceptions-practices-and-presentations-of-employability/991153240202621?institution=61USC_INST",
+    linkLabel: "Thesis",
+  },
+  {
+    type: "citation",
+    title: "Tuition Increases and University Behavior: Theory and Evidence on Student Enrollment",
+    outlet: "CESifo Working Paper No. 12018 \u2014 Cuff, Gamarra Rondinel & Payne",
+    date: "2025-07-24",
+    url: "https://www.econstor.eu/handle/10419/325009",
+    linkLabel: "Paper",
+  },
+  {
     type: "media",
     title: "Australia to change student visa processing rules again",
     outlet: "Times Higher Education",

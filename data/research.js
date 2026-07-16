@@ -34,6 +34,10 @@ const RESEARCH = {
         "data from New South Wales and the 2020 Job-ready Graduates reform as a natural experiment. " +
         "Student preferences are negatively related to fees, but elasticities are small — consistent with " +
         "generous income-contingent loans muting price signals. Currently being prepared for journal submission.",
+      quotes: [
+        { text: "The biggest ever \u2018shake-up\u2019 of university fees proved \u2018largely ineffectual\u2019 in influencing students\u2019 subject choice, Australian research has confirmed.", source: "Times Higher Education" },
+        { text: "An exhaustive analysis of student preferences in NSW between 2014 and last year found almost zero change in student enrolment patterns after the introduction of the \u2018job-ready\u2019 policy.", source: "AFR" },
+      ],
       links: [
         { label: "Working paper", href: "https://melbourneinstitute.unimelb.edu.au/publications/working-papers/search/result?paper=4751741", primary: true },
         { label: "Pursuit summary", href: "https://pursuit.unimelb.edu.au/articles/changing-the-cost-of-some-uni-degrees-didn-t-change-students-minds" },
