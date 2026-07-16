@@ -9,11 +9,22 @@
 
   const OUTLET_LOGOS = {
     "The Age and Sydney Morning Herald": "assets/img/logos/the-age.svg",
+    "The Australian": "assets/img/logos/the-australian.svg",
     "The Australian Financial Review": "assets/img/logos/afr.svg",
     "Times Higher Education": "assets/img/logos/the.svg",
     "The Guardian": "assets/img/logos/guardian.svg",
     "The Conversation": "assets/img/logos/conversation.png",
     "ABC News": "assets/img/logos/abc-news.svg",
+    "Pursuit (University of Melbourne)": "assets/img/logos/sq-unimelb.png",
+    "Melbourne University FBE Newsroom": "assets/img/logos/sq-unimelb.png",
+    "The Scholars Podcast (John Monash Foundation)": "assets/img/logos/sq-monash.png",
+    "The Policymaker (James Martin Institute)": "assets/img/logos/sq-jmi.png",
+    "The Productivity Commission": "assets/img/logos/sq-pc.png",
+    "Australian Universities Accord Panel": "assets/img/logos/sq-govau.png",
+    "Future Campus": "assets/img/logos/sq-futurecampus.png",
+    "Future Forward Australia": "assets/img/logos/sq-ffa.png",
+    "Higher Education Policy Institute": "assets/img/logos/sq-hepi.png",
+    "DASSH": "assets/img/logos/sq-dassh.png",
   };
 
   const TYPE_LABELS = {

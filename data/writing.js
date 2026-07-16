@@ -256,7 +256,7 @@ const WRITING = [
     date: "2023-12-06",
     url: "https://pursuit.unimelb.edu.au/articles/changing-the-cost-of-some-uni-degrees-didn-t-change-students-minds",
     pdf: "pdfs/writing/2023-12-pursuit-uni-degrees.pdf",
-    note: "With Mick Coelli and Jan Kabatek",
+    note: "With Michael Coelli and Jan Kabátek",
   },
   {
     type: "media",

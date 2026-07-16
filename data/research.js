@@ -26,7 +26,7 @@ const RESEARCH = {
       kind: "Working paper",
       title: "University fees, subsidies and field of study",
       date: "2023",
-      authors: "with A/Prof Michael Coelli and Dr Jan Kabátek",
+      authors: "with Michael Coelli and Jan Kabátek",
       venue: "Melbourne Institute Working Paper No. 11/23",
       summary:
         "We estimate the effects of discrete changes in student fees and government subsidies on " +
@@ -44,12 +44,12 @@ const RESEARCH = {
       ],
     },
     {
-      kind: "Honours thesis",
+      kind: "Thesis",
       title: "University fees, subsidies and field of study: evidence from the Job-ready Graduates reform",
       date: "2022",
       authors: "University of Melbourne, Department of Economics",
       summary:
-        "Honours research underpinning the Melbourne Institute working paper: an empirical analysis of how " +
+        "The research underpinning the Melbourne Institute working paper: an empirical analysis of how " +
         "the largest re-pricing of Australian university degrees in a generation affected what students chose to study.",
       links: [
         { label: "Thesis (PDF)", href: "pdfs/research/2023-honours-thesis.pdf", pdf: true, primary: true },
