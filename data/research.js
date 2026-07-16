@@ -15,7 +15,7 @@ const RESEARCH = {
       kind: "Forthcoming",
       forthcoming: true,
       title: "University fee optimisation under policy constraints",
-      date: "In preparation",
+      date: "",
       summary:
         "Academic paper developing a budget-neutral redesign of Australia's Job-ready Graduates fee " +
         "structure (proposed in my 2026 Senate submission): correcting the scheme's price distortions " +

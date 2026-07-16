@@ -7,6 +7,15 @@
 (function () {
   "use strict";
 
+  const OUTLET_LOGOS = {
+    "The Age and Sydney Morning Herald": "assets/img/logos/the-age.svg",
+    "The Australian Financial Review": "assets/img/logos/afr.svg",
+    "Times Higher Education": "assets/img/logos/the.svg",
+    "The Guardian": "assets/img/logos/guardian.svg",
+    "The Conversation": "assets/img/logos/conversation.png",
+    "ABC News": "assets/img/logos/abc-news.svg",
+  };
+
   const TYPE_LABELS = {
     opinion: "Opinion",
     article: "Article",
@@ -209,8 +218,11 @@
         ? `<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`
         : esc(it.title);
 
+      const outletLogo = OUTLET_LOGOS[it.outlet]
+        ? `<img class="pub__outlet-logo" src="${OUTLET_LOGOS[it.outlet]}" alt="" loading="lazy">`
+        : "";
       row.innerHTML =
-        `<div class="pub__meta">${badge}<span>${esc(it.outlet)}</span><span class="dot">·</span><span>${fmtDate(it.date)}</span></div>` +
+        `<div class="pub__meta">${badge}<span>${esc(it.outlet)}</span><span class="dot">·</span><span>${fmtDate(it.date)}</span>${outletLogo}</div>` +
         `<div><h3 class="pub__title">${titleInner}</h3>${note}</div>` +
         `<div class="pub__actions"></div>`;
 
@@ -314,7 +326,7 @@
         card.className = "research-card" + (it.forthcoming ? " research-card--forthcoming" : "");
         const venue = it.venue ? `<span class="dot">·</span><span>${esc(it.venue)}</span>` : "";
         card.innerHTML =
-          `<div class="research-card__meta"><span class="pub__badge">${esc(it.kind)}</span><span>${esc(it.date)}</span>${venue}</div>` +
+          `<div class="research-card__meta"><span class="pub__badge">${esc(it.kind)}</span>${it.date ? `<span>${esc(it.date)}</span>` : ""}${venue}</div>` +
           `<h3>${esc(it.title)}</h3>` +
           (it.authors ? `<div class="research-card__authors">${esc(it.authors)}</div>` : "") +
           (it.summary ? `<p>${esc(it.summary)}</p>` : "") +
