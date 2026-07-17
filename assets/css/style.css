@@ -708,10 +708,12 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
-/* Mirrored split (image left on desktop, text first on mobile) */
-.research-split--flip { grid-template-columns: 440px 1fr; }
-.research-split--flip > :first-child { order: 2; }
-.research-split--flip > :last-child { order: 1; }
+/* Mirrored split (image left on desktop only; stacked mobile keeps text first) */
+@media (min-width: 901px) {
+  .research-split--flip { grid-template-columns: 440px 1fr; }
+  .research-split--flip > :first-child { order: 2; }
+  .research-split--flip > :last-child { order: 1; }
+}
 
 /* Click-to-enlarge figure */
 figure.research-figure[data-lightbox] { cursor: zoom-in; }
@@ -986,7 +988,6 @@ a.research-figure:hover img { transform: scale(1.015); }
   .featured-grid { grid-template-columns: 1fr; }
   .roles { grid-template-columns: 1fr; }
   .research-split { grid-template-columns: 1fr; gap: 32px; }
-  .research-split--flip > * { order: initial; }
 }
 
 @media (max-width: 700px) {
