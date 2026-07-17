@@ -13,8 +13,19 @@ python3 << 'EOF'
 from PIL import Image
 
 src = Image.open("assets/img/monogram.png").convert("RGBA")
-for size, name in [(32, "favicon-32.png"), (192, "favicon-192.png"), (180, "apple-touch-icon.png")]:
-    img = src.resize((size, size), Image.LANCZOS)
+
+def padded(size, scale):
+    # Google/browsers mask favicons into circles — keep the mark inside
+    # the safe zone so nothing gets amputated by the crop.
+    inner = int(size * scale)
+    mark = src.resize((inner, inner), Image.LANCZOS)
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    off = (size - inner) // 2
+    canvas.alpha_composite(mark, (off, off))
+    return canvas
+
+for size, name, scale in [(32, "favicon-32.png", 0.68), (192, "favicon-192.png", 0.66), (180, "apple-touch-icon.png", 0.78)]:
+    img = padded(size, scale)
     if name == "apple-touch-icon.png":
         # iOS ignores transparency — give it a white plate
         plate = Image.new("RGBA", (size, size), (255, 255, 255, 255))
@@ -23,7 +34,7 @@ for size, name in [(32, "favicon-32.png"), (192, "favicon-192.png"), (180, "appl
     img.save(f"assets/img/{name}", optimize=True)
     print("wrote", f"assets/img/{name}")
 
-src.resize((48, 48), Image.LANCZOS).save(
+padded(48, 0.68).save(
     "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
 print("wrote favicon.ico")
 EOF
