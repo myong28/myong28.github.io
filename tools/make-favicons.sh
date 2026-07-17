@@ -14,26 +14,18 @@ from PIL import Image
 
 src = Image.open("assets/img/monogram.png").convert("RGBA")
 
-def padded(size, scale, halo=True):
+def padded(size, scale):
     # Google/browsers mask favicons into circles — keep the mark inside
-    # the safe zone so nothing gets amputated by the crop. A soft white
-    # halo keeps the navy strokes visible on dark tab bars.
-    from PIL import ImageFilter
+    # the safe zone so nothing gets amputated by the crop.
     inner = int(size * scale)
     mark = src.resize((inner, inner), Image.LANCZOS)
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     off = (size - inner) // 2
-    if halo:
-        grow = max(3, (size // 24) * 2 + 1)  # odd kernel, ~1px at 32, ~4px at 192
-        halo_alpha = mark.getchannel("A").filter(ImageFilter.MaxFilter(grow)).filter(ImageFilter.GaussianBlur(grow / 4))
-        halo_img = Image.new("RGBA", (inner, inner), (255, 255, 255, 0))
-        halo_img.putalpha(halo_alpha)
-        canvas.alpha_composite(halo_img, (off, off))
     canvas.alpha_composite(mark, (off, off))
     return canvas
 
 for size, name, scale in [(32, "favicon-32.png", 0.68), (192, "favicon-192.png", 0.66), (180, "apple-touch-icon.png", 0.78)]:
-    img = padded(size, scale, halo=(name != "apple-touch-icon.png"))
+    img = padded(size, scale)
     if name == "apple-touch-icon.png":
         # iOS ignores transparency — give it a white plate
         plate = Image.new("RGBA", (size, size), (255, 255, 255, 255))
