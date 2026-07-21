@@ -25,6 +25,14 @@ const WRITING = [
   /* ------------------------------ 2026 ------------------------------ */
 
   {
+    type: "media",
+    title: "Job-ready Graduates fee hikes for humanities courses ‘fixable’",
+    outlet: "Times Higher Education",
+    date: "2026-07-21",
+    url: "https://www.timeshighereducation.com/news/job-ready-graduates-fee-hikes-humanities-courses-fixable",
+    pdf: "pdfs/writing/2026-07-jrg fix.pdf",
+  },
+  {
     type: "opinion",
     title: "This five-minute banking switch could put $800 back in your pocket",
     outlet: "The Age and Sydney Morning Herald",
