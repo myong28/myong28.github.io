@@ -25,12 +25,23 @@ const WRITING = [
   /* ------------------------------ 2026 ------------------------------ */
 
   {
+    type: "opinion",
+    title: "The unexpected winner of the AI boom? Your arts degree",
+    outlet: "The Age and Sydney Morning Herald",
+    date: "2026-07-24",
+    url: "https://www.theage.com.au/business/workplace/the-unexpected-winner-of-the-ai-boom-your-arts-degree-20260723-p60i0k.html",
+    pdf: "pdfs/writing/2026-07-jrg fix",
+    note: "With comment from Professor David Autor (MIT)",
+    featured: true,
+  },
+  {
     type: "media",
     title: "Job-ready Graduates fee hikes for humanities courses ‘fixable’",
     outlet: "Times Higher Education",
     date: "2026-07-21",
     url: "https://www.timeshighereducation.com/news/job-ready-graduates-fee-hikes-humanities-courses-fixable",
     pdf: "pdfs/writing/2026-07-jrg fix.pdf",
+    note: "With comment",
   },
   {
     type: "opinion",
@@ -39,6 +50,7 @@ const WRITING = [
     date: "2026-06-16",
     url: "https://www.theage.com.au/money/saving/this-five-minute-banking-switch-could-put-800-back-in-your-pocket-20260616-p6074y.html",
     pdf: "pdfs/writing/2026-06-banking-switch-800.pdf",
+    note: "With comment from Professor John Y. Campbell (Harvard)",
     featured: true,
   },
   {
@@ -56,7 +68,6 @@ const WRITING = [
     date: "2026-05-15",
     url: "https://www.theage.com.au/business/workplace/why-staying-in-your-safe-job-is-costing-you-5700-a-year-20260514-p5zwyt.html",
     pdf: "pdfs/writing/2026-05-safe-job-5700.pdf",
-    featured: true,
   },
   {
     type: "opinion",
