@@ -30,7 +30,7 @@ const WRITING = [
     outlet: "The Age and Sydney Morning Herald",
     date: "2026-07-24",
     url: "https://www.theage.com.au/business/workplace/the-unexpected-winner-of-the-ai-boom-your-arts-degree-20260723-p60i0k.html",
-    pdf: "pdfs/writing/2026-07-jrg fix",
+    pdf: "pdfs/writing/2026-07-ai-arts.pdf",
     note: "With comment from Professor David Autor (MIT)",
     featured: true,
   },
@@ -40,7 +40,7 @@ const WRITING = [
     outlet: "Times Higher Education",
     date: "2026-07-21",
     url: "https://www.timeshighereducation.com/news/job-ready-graduates-fee-hikes-humanities-courses-fixable",
-    pdf: "pdfs/writing/2026-07-jrg fix.pdf",
+    pdf: "pdfs/writing/2026-07-jrg-fix.pdf",
     note: "With comment",
   },
   {
