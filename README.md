@@ -52,6 +52,26 @@ git add . && git commit -m "New logo" && git push
 Then bump the favicon version in the four HTML files (search `?v=3`, make it
 `?v=4`) so browsers refetch.
 
+## Editing text anywhere on the site
+
+Every word on the site lives in one of five plain-text files — edit the
+words, keep the surrounding punctuation/brackets intact, save, push. No
+formatting work needed; layout and styling apply automatically.
+
+| What you want to change | File | Find it by searching for |
+|---|---|---|
+| Bio / hero blurb | `index.html` | `hero__lede` |
+| "Currently"/"Previously" role cards | `index.html` | the role name, e.g. `Teaching Fellow` |
+| Research & Policy homepage panels | `index.html` | `Do fees change` / `From evidence` |
+| Research tiles (titles, summaries, links, quotes) | `data/research.js` | the tile's title |
+| Writing list entries | `data/writing.js` | the article's title |
+| Page intros/headings | the page's `.html` file | `section__title` |
+| Contact emails | `contact.html` | the email address |
+
+Rules of thumb: in the `.html` files, change only text between `>` and `<`.
+In the `.js` files, change only text between quotes, and keep the trailing
+comma. Preview locally before pushing if unsure (`python3 tools/serve.py`).
+
 ## Local preview
 
 ```bash
