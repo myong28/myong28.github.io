@@ -26,6 +26,16 @@ const WRITING = [
 
   {
     type: "opinion",
+    title: "Want to 233x your money? Why this new form of gambling is a dangerous trap",
+    outlet: "The Age and Sydney Morning Herald",
+    date: "2026-08-18",
+    url: "https://www.theage.com.au/money/investing/want-to-233x-your-money-why-this-new-form-of-gambling-is-a-dangerous-trap-20260818-p60pb4.html",
+    pdf: "pdfs/writing/2026-08-prediction-markets.pdf",
+    note: "With comment from Professor Justin Wolfers (U Mich)",
+    featured: true,
+  },
+  {
+    type: "opinion",
     title: "The unexpected winner of the AI boom? Your arts degree",
     outlet: "The Age and Sydney Morning Herald",
     date: "2026-07-24",
@@ -51,7 +61,6 @@ const WRITING = [
     url: "https://www.theage.com.au/money/saving/this-five-minute-banking-switch-could-put-800-back-in-your-pocket-20260616-p6074y.html",
     pdf: "pdfs/writing/2026-06-banking-switch-800.pdf",
     note: "With comment from Professor John Y. Campbell (Harvard)",
-    featured: true,
   },
   {
     type: "article",
