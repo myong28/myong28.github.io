@@ -26,6 +26,23 @@ const WRITING = [
 
   {
     type: "opinion",
+    title: "Most Australians don’t have a mortgage. Rate rises could leave them better off",
+    outlet: "The Age and Sydney Morning Herald",
+    date: "2026-11-10",
+    url: "https://www.theage.com.au/money/borrowing/most-australians-don-t-have-a-mortgage-rate-rises-could-leave-them-better-off-20261110-p61cua.html",
+    pdf: "pdfs/writing/2026-11-rate-rises-better-off.pdf",
+    featured: true,
+  },
+  {
+    type: "opinion",
+    title: "One hour equals 50¢. Is social media fuelling your shopping addiction?",
+    outlet: "The Age and Sydney Morning Herald",
+    date: "2026-10-06",
+    url: "https://www.theage.com.au/money/planning-and-budgeting/one-hour-equals-50-is-social-media-fuelling-your-shopping-addiction-20261006-p60v4x.html",
+    pdf: "pdfs/writing/2026-10-social-media-shopping.pdf",
+  },
+  {
+    type: "opinion",
     title: "Want to 233x your money? Why this new form of gambling is a dangerous trap",
     outlet: "The Age and Sydney Morning Herald",
     date: "2026-08-18",
@@ -93,7 +110,6 @@ const WRITING = [
     date: "2026-05-05",
     url: "https://www.theage.com.au/money/tax/the-great-australian-dream-is-dying-unless-labor-acts-now-it-s-gone-forever-20260505-p5zttr.html",
     pdf: "pdfs/writing/2026-05-budget-intergenerational-equality.pdf",
-    featured: true,
   },
   {
     type: "opinion",
