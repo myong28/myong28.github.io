@@ -394,10 +394,6 @@ img { max-width: 100%; display: block; }
 
 .role-card p strong { color: var(--body); font-weight: 650; }
 
-/* An odd-numbered last card spans the row so it is never left orphaned
-   beside an empty cell — self-maintaining as roles are added or removed. */
-.roles > .role-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
-
 /* Two mastheads, not one: the ampersand sits lighter than the names. */
 .role-card h3 .amp { font-weight: 400; color: var(--muted); }
 
